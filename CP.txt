@@ -1,0 +1,31 @@
+package com.student.manage;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class CP {			// CONNECTION PROVIDER
+	
+	static Connection con;
+	
+	public static Connection createC () {
+		
+		try {
+			// LOAD THE DRIVER
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			// CREATE THE CONNECTION ...
+			String user = "root";
+			String password = "kaustubh";
+			String url = "jdbc:mysql://localhost:3306/studentRecords";
+			
+			con = DriverManager.getConnection(url , user, password);
+		}
+		
+		catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+		return con;
+	}
+
+}
